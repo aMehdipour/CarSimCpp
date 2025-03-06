@@ -1,0 +1,2 @@
+/usr/bin/ar qc libBicycleModel.a CMakeFiles/BicycleModel.dir/BicycleModel.cpp.o
+/usr/bin/ranlib libBicycleModel.a

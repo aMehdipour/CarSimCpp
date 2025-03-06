@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# Sim output
+*.csv
+*.png
+
+# Other
+*.cache
+*.clangd
+

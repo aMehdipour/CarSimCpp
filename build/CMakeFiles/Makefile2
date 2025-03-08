@@ -67,6 +67,7 @@ all: CMakeFiles/vehicle_sim.dir/all
 all: Sim/all
 all: Car/all
 all: Integrator/all
+all: ThirdParty/nholmann/all
 .PHONY : all
 
 # The main recursive "codegen" target.
@@ -74,12 +75,14 @@ codegen: CMakeFiles/vehicle_sim.dir/codegen
 codegen: Sim/codegen
 codegen: Car/codegen
 codegen: Integrator/codegen
+codegen: ThirdParty/nholmann/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: Sim/preinstall
 preinstall: Car/preinstall
 preinstall: Integrator/preinstall
+preinstall: ThirdParty/nholmann/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -87,6 +90,7 @@ clean: CMakeFiles/vehicle_sim.dir/clean
 clean: Sim/clean
 clean: Car/clean
 clean: Integrator/clean
+clean: ThirdParty/nholmann/clean
 .PHONY : clean
 
 #=============================================================================
@@ -145,6 +149,25 @@ Sim/preinstall:
 # Recursive "clean" directory target.
 Sim/clean:
 .PHONY : Sim/clean
+
+#=============================================================================
+# Directory level rules for directory ThirdParty/nholmann
+
+# Recursive "all" directory target.
+ThirdParty/nholmann/all:
+.PHONY : ThirdParty/nholmann/all
+
+# Recursive "codegen" directory target.
+ThirdParty/nholmann/codegen:
+.PHONY : ThirdParty/nholmann/codegen
+
+# Recursive "preinstall" directory target.
+ThirdParty/nholmann/preinstall:
+.PHONY : ThirdParty/nholmann/preinstall
+
+# Recursive "clean" directory target.
+ThirdParty/nholmann/clean:
+.PHONY : ThirdParty/nholmann/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/vehicle_sim.dir

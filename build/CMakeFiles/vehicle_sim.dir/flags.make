@@ -4,7 +4,7 @@
 # compile CXX with clang++
 CXX_DEFINES = -DCAR_MODEL=BicycleModel -DINTEGRATOR_MODEL=EulerIntegrator
 
-CXX_INCLUDES = -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/usr/include/eigen3
+CXX_INCLUDES = -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/usr/include/eigen3
 
-CXX_FLAGS = -g -std=gnu++11
+CXX_FLAGS = -g -std=gnu++20
 

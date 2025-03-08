@@ -1,19 +1,19 @@
 [
 {
   "directory": "/home/amehdipour/Repos/CarSimCpp/build",
-  "command": "clang++ -DCAR_MODEL=BicycleModel -DINTEGRATOR_MODEL=EulerIntegrator -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/usr/include/eigen3 -g -std=gnu++11 -o CMakeFiles/vehicle_sim.dir/main.cpp.o -c /home/amehdipour/Repos/CarSimCpp/main.cpp",
+  "command": "clang++ -DCAR_MODEL=BicycleModel -DINTEGRATOR_MODEL=EulerIntegrator -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/vehicle_sim.dir/main.cpp.o -c /home/amehdipour/Repos/CarSimCpp/main.cpp",
   "file": "/home/amehdipour/Repos/CarSimCpp/main.cpp",
   "output": "CMakeFiles/vehicle_sim.dir/main.cpp.o"
 },
 {
   "directory": "/home/amehdipour/Repos/CarSimCpp/build/Car",
-  "command": "clang++ -DUSE_BICYCLE_MODEL -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/usr/include/eigen3 -g -std=gnu++11 -o CMakeFiles/BicycleModel.dir/BicycleModel.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Car/BicycleModel.cpp",
+  "command": "clang++ -DUSE_BICYCLE_MODEL -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/BicycleModel.dir/BicycleModel.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Car/BicycleModel.cpp",
   "file": "/home/amehdipour/Repos/CarSimCpp/Car/BicycleModel.cpp",
   "output": "Car/CMakeFiles/BicycleModel.dir/BicycleModel.cpp.o"
 },
 {
   "directory": "/home/amehdipour/Repos/CarSimCpp/build/Integrator",
-  "command": "clang++ -DUSE_EULER_INTEGRATION -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/usr/include/eigen3 -g -std=gnu++11 -o CMakeFiles/EulerIntegrator.dir/EulerIntegrator.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Integrator/EulerIntegrator.cpp",
+  "command": "clang++ -DUSE_EULER_INTEGRATION -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/EulerIntegrator.dir/EulerIntegrator.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Integrator/EulerIntegrator.cpp",
   "file": "/home/amehdipour/Repos/CarSimCpp/Integrator/EulerIntegrator.cpp",
   "output": "Integrator/CMakeFiles/EulerIntegrator.dir/EulerIntegrator.cpp.o"
 }

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(VehicleDynamics CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_COMPILER clang++)
 
@@ -13,6 +13,9 @@ include_directories(
     Sim
     Integrator
     Utils
+    Common
+    TireModel
+    ThirdParty/nholmann
     ${EIGEN3_INCLUDE_DIR}
 )
 
@@ -27,6 +30,7 @@ option(USE_RK4_INTEGRATION "Use Runge-Kutta 4 Integration" OFF)
 add_subdirectory(Sim)
 add_subdirectory(Car)
 add_subdirectory(Integrator)
+add_subdirectory(ThirdParty/nholmann)
 
 add_executable(vehicle_sim main.cpp)
 

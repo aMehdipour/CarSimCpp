@@ -2,7 +2,7 @@
 
 class Car {
 public:
-    virtual void simulate() = 0;
+    virtual void computeDerivatives() = 0;
     virtual ~Car() = default;
 };
 

@@ -66,3 +66,8 @@ if [[ -f "compile_commands.json" ]]; then
     cp compile_commands.json ..
 fi
 
+if [[ -f "./vehicle_sim" ]]; then
+    cp ./vehicle_sim ..
+elif [[ -f "./$BUILD_TYPE/vehicle_sim" ]]; then
+    cp ./$BUILD_TYPE/vehicle_sim ..
+fi

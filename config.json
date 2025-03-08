@@ -1,0 +1,12 @@
+{
+    "tire" : {
+        "model" : "Linear",
+        "C_alphaF" : 80000.0,
+        "C_alphaR" : 80000.0
+    },
+    "car" : {
+        "mass" : 69.0,
+        "Izz" : 69.0,
+        "frontWeightBias" : 0.5
+    }
+}

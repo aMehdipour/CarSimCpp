@@ -1,16 +1,26 @@
-#include "BicycleModel.h"
-#include "HighFidelity.h"
-#include "EulerIntegrator.h"
-#include "RK4Integrator.h"
-#include "Sim.h"
+/*#include "BicycleModel.h"*/
+/*#include "EulerIntegrator.h"*/
+/*#include "Sim.h"*/
+#include <iostream>
+#include <json.hpp>
+#include <fstream>
+#include <LinearTireModel.h>
 
-// Define SelectedCarModel and SelectedIntegrator
-using SelectedCarModel = CAR_MODEL;
-using SelectedIntegrator = INTEGRATOR_MODEL;
+using json = nlohmann::json;
 
 int main() {
-    Sim<SelectedCarModel, SelectedIntegrator> sim;
-    sim.run();
+
+    std::ifstream configFile("config.json");
+    json config;
+    configFile >> config;
+    json tireParams = config["tire"];
+    json carParams = config["car"]; 
+
+    if (tireParams["model"] == "Linear") {
+        LinearTireModel tireModel(tireParams["C_alphaF"], tireParams["C_alphaR"]);
+    }
+
+    std::cout << "I'm gay" << std::endl;
     return 0;
 }
 

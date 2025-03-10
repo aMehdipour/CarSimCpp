@@ -1,10 +1,11 @@
 #pragma once
+#include "TireModel.h"
 
-class LinearTireModel {
+class LinearTireModel : TireModel {
 public:
-    LinearTireModel(double stiffnessFront, double stiffnessRear) :
-    corneringStiffnessFront_(stiffnessFront),
-    corneringStiffnessRear_(stiffnessRear) { }
+    LinearTireModel(double corneringStiffnessFront, double corneringStiffnessRear) :
+    corneringStiffnessFront_(corneringStiffnessFront),
+    corneringStiffnessRear_(corneringStiffnessRear) { }
 
     double computeLateralForce(double slipAngle, double normalLoad);
 

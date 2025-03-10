@@ -155,6 +155,32 @@ EulerIntegrator/fast:
 	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/build
 .PHONY : EulerIntegrator/fast
 
+#=============================================================================
+# Target rules for targets named TireModel
+
+# Build rule for target.
+TireModel: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TireModel
+.PHONY : TireModel
+
+# fast build rule for target.
+TireModel/fast:
+	$(MAKE) $(MAKESILENT) -f TireModel/CMakeFiles/TireModel.dir/build.make TireModel/CMakeFiles/TireModel.dir/build
+.PHONY : TireModel/fast
+
+#=============================================================================
+# Target rules for targets named Utils
+
+# Build rule for target.
+Utils: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Utils
+.PHONY : Utils
+
+# fast build rule for target.
+Utils/fast:
+	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/build
+.PHONY : Utils/fast
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -189,6 +215,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... BicycleModel"
 	@echo "... EulerIntegrator"
+	@echo "... TireModel"
+	@echo "... Utils"
 	@echo "... vehicle_sim"
 	@echo "... main.o"
 	@echo "... main.i"

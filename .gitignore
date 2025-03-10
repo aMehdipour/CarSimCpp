@@ -38,4 +38,5 @@
 # Other
 *.cache
 *.clangd
+RefactorCode/*
 

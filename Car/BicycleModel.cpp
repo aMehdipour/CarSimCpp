@@ -13,7 +13,7 @@ void BicycleModel::computeDerivatives(MathTools::StateVector& state,
                                       MathTools::DerivativeVector& derivatives,
                                       TireModel& tireModel,
                                       double t) {
-    assert(state.size() == CarConstants::NUM_STATES_BICYCLE);
+    assert(state.size() == CarConstants::NUM_STATES);
 
     // Unpack the state...
     double x     = state(0);

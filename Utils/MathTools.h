@@ -18,8 +18,8 @@ typedef Matrix<double, 3, 3> Mat3;
 typedef Vector<double, 3> Vec3;
 typedef Matrix<double, 4, 4> Mat4;
 typedef Vector<double, 4> Vec4;
-typedef Vector<double, CarConstants::NUM_STATES_BICYCLE> StateVector;
-typedef Vector<double, CarConstants::NUM_STATES_BICYCLE> DerivativeVector;
+typedef Vector<double, CarConstants::NUM_STATES> StateVector;
+typedef Vector<double, CarConstants::NUM_STATES> DerivativeVector;
 typedef Vector<double, CarConstants::NUM_INPUT_STATES> InputVector;
 typedef Vector<double, CarConstants::NUM_CONTROL_INPUTS> ControlInputVector;
 }

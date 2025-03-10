@@ -98,6 +98,8 @@ vehicle_sim: CMakeFiles/vehicle_sim.dir/build.make
 vehicle_sim: CMakeFiles/vehicle_sim.dir/compiler_depend.ts
 vehicle_sim: Car/libBicycleModel.a
 vehicle_sim: Integrator/libEulerIntegrator.a
+vehicle_sim: TireModel/libTireModel.a
+vehicle_sim: Utils/libUtils.a
 vehicle_sim: CMakeFiles/vehicle_sim.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable vehicle_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vehicle_sim.dir/link.txt --verbose=$(VERBOSE)

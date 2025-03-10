@@ -1,6 +1,7 @@
 /*#include "BicycleModel.h"*/
 /*#include "EulerIntegrator.h"*/
 /*#include "Sim.h"*/
+#include "MFTireModel.h"
 #include <iostream>
 #include <json.hpp>
 #include <fstream>
@@ -9,6 +10,7 @@
 using json = nlohmann::json;
 
 int main() {
+    MFTireModel tireModel;
 
     std::ifstream configFile("config.json");
     json config;
@@ -16,9 +18,7 @@ int main() {
     json tireParams = config["tire"];
     json carParams = config["car"]; 
 
-    if (tireParams["model"] == "Linear") {
-        LinearTireModel tireModel(tireParams["C_alphaF"], tireParams["C_alphaR"]);
-    }
+    tireModel.configure(tireParams);
 
     std::cout << "I'm gay" << std::endl;
     return 0;

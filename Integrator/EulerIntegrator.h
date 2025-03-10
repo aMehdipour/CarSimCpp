@@ -1,7 +1,7 @@
 #pragma once
-#include "Integrator.h"
+#include "IntegratorBase.h"
 
-class EulerIntegrator : public Integrator{
+class EulerIntegrator : public IntegratorBase{
 public:
     virtual void integrate();
 };

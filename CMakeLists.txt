@@ -31,6 +31,8 @@ add_subdirectory(Sim)
 add_subdirectory(Car)
 add_subdirectory(Integrator)
 add_subdirectory(ThirdParty/nholmann)
+add_subdirectory(TireModel)
+add_subdirectory(Utils)
 
 add_executable(vehicle_sim main.cpp)
 
@@ -52,3 +54,5 @@ elseif (USE_RK4_INTEGRATION)
 endif()
 
 target_link_libraries(vehicle_sim PRIVATE Sim)
+target_link_libraries(vehicle_sim PRIVATE TireModel)
+target_link_libraries(vehicle_sim PRIVATE Utils)

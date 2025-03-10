@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTireModel.a CMakeFiles/TireModel.dir/MFCoefficients.cpp.o CMakeFiles/TireModel.dir/MFTireModel.cpp.o
+/usr/bin/ranlib libTireModel.a

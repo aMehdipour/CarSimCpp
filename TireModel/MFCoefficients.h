@@ -26,6 +26,7 @@ public:
     double BELT_IXX_;
     double BELT_IYY_;
     double FNOMIN_;
+    double LONGVL_;
     double LFZO_;
     double LCX_;
     double LMUX_;
@@ -44,6 +45,7 @@ public:
     double LKYC_;
     double LKZC_;
     double LMY_;
+    double LVY_;
     double PCX1_;
     double PDX1_;
     double PDX2_;
@@ -72,6 +74,7 @@ public:
     double PEY4_;
     double PHY1_;
     double PHY2_;
+    double PHY3_;
     double PKY1_;
     double PKY2_;
     double PKY3_;

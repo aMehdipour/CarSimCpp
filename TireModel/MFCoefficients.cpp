@@ -19,6 +19,7 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         {"BELT_IXX",        & MFCoefficients::BELT_IXX_},
         {"BELT_IYY",        & MFCoefficients::BELT_IYY_},
         {"FNOMIN",          & MFCoefficients::FNOMIN_},
+        {"LONGVL",          & MFCoefficients::LONGVL_},
         {"LFZO",            & MFCoefficients::LFZO_},
         {"LCX",             & MFCoefficients::LCX_},
         {"LMUX",            & MFCoefficients::LMUX_},
@@ -37,6 +38,7 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         {"LKYC",            & MFCoefficients::LKYC_},
         {"LKZC",            & MFCoefficients::LKZC_},
         {"LMY",             & MFCoefficients::LMY_},
+        {"LVY",             & MFCoefficients::LVY_},
         {"PCX1",            & MFCoefficients::PCX1_},
         {"PDX1",            & MFCoefficients::PDX1_},
         {"PDX2",            & MFCoefficients::PDX2_},
@@ -83,6 +85,7 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         {"PEY4",            & MFCoefficients::PEY4_},
         {"PHY1",            & MFCoefficients::PHY1_},
         {"PHY2",            & MFCoefficients::PHY2_},
+        {"PHY3",            & MFCoefficients::PHY3_},
         {"PKY1",            & MFCoefficients::PKY1_},
         {"PKY2",            & MFCoefficients::PKY2_},
         {"PKY3",            & MFCoefficients::PKY3_},
@@ -137,13 +140,17 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
     };
 
     for (const auto& pair : coefficients) {
-    auto it = field_map.find(pair.first);
-    if (it != field_map.end()) {
-        this->*(it->second) = pair.second;
-        std::cout << "-- Value from CSV: " << pair.first << " = " << pair.second << std::endl;
-        std::cout << "-- Member Variable: " << it->first << " = " << this->*(it->second) << std::endl;
-    }
+        auto it = field_map.find(pair.first);
+        if (it != field_map.end()) {
+            this->*(it->second) = pair.second;
+            std::cout << "-- Value from CSV: " << pair.first << " = " << pair.second << std::endl;
+            std::cout << "-- Member Variable: " << it->first << " = " << this->*(it->second) << std::endl;
+        } else {
+            std::cout << "Field not found: " << pair.first << ". Setting to zero..."<< std::endl;
+            this->*(it->second) = 0.;
 
-    std::cout << "-----------------------------------------------------------------" << std::endl;
-}
+        }
+
+        std::cout << "-----------------------------------------------------------------" << std::endl;
+    }
 }

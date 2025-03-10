@@ -7,7 +7,7 @@ public:
     corneringStiffnessFront_(corneringStiffnessFront),
     corneringStiffnessRear_(corneringStiffnessRear) { }
 
-    double computeLateralForce(double slipAngle, double normalLoad);
+    double computeLateralForce(double slipRatio, double slipAngle, double normalLoad);
 
 private:
     double corneringStiffnessFront_;

@@ -11,9 +11,8 @@ class MFTireModel : public TireModel {
 public:
     bool configure(const json config);
     
-    double computeLateralForce(double slipAngle, double normalLoad) const override;
+    void computeLateralForce(double& Fx, double& Fy, double vx, double vy, double camberAngle, double slipRatio, double slipAngle, double normalLoad) const override;
 
 private:
-    std::unordered_map<std::string, double> coefficients_;
-    MFCoefficients mfCoefficients_;
+    MFCoefficients coeffs_;
 };

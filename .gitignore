@@ -41,4 +41,6 @@
 RefactorCode/*
 build/*
 *.internal
+Output/*
+*.make
 

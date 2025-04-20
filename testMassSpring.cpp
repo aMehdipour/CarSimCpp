@@ -1,67 +1,33 @@
-/*#include "DormandPrince853.h"*/
-/*#include "MassSpringDamper.h"*/
-/*#include <MathTools.h>*/
-/*#include "Telemetry.h"*/
-/*#include <iostream>*/
-/**/
-/*int main() {*/
-/*    MathTools::StateVector state;*/
-/*    MathTools::DerivativeVector derivatives;*/
-/*    MathTools::DerivativeVector initialStateDerivatives;*/
-/*    // System parameters*/
-/*    double m = 1.0, k = 10.0, b = 0.5, F = 5.0, w = 2.0;*/
-/*    MassSpringDamper system(m, k, b, F, w);*/
-/**/
-/*    // Initial conditions*/
-/*    state << 1.0, 0.0;  // x0 = 1.0, v0 = 0.0*/
-/*    derivatives << 0.0, 0.0;*/
-/*    double t0 = 0.0, tf = 10.0, dt = 0.01;*/
-/*    double t = t0;*/
-/*    Dopr853::DormandPrince853<MassSpringDamper> integrator(state, derivatives, t0, 1e-6, 1e-6, true);*/
-/**/
-/*    // Setup telemetry logger*/
-/*    Telemetry telemetry("Output/simulation_output.csv", {"Time", "Num_X", "Num_V", "Exact_X", "Exact_V", "Error_X", "Error_V"});*/
-/**/
-/*    // Simulation loop*/
-/*    while (t < tf) {*/
-/*        // Store exact solution*/
-/*        Eigen::Vector2d exact = system.exact_solution(t, m, k, b, F, w, state(0), state(1));*/
-/**/
-/*        // Integrate system*/
-/*        integrator.step(dt, system);*/
-/*        t += dt;*/
-/**/
-/*        // Compute error*/
-/*        double error_x = std::abs(state(0) - exact(0));*/
-/*        double error_v = std::abs(state(1) - exact(1));*/
-/**/
-/**/
-/*        // Log to file*/
-/*        telemetry.log({t, state(0), state(1), exact(0), exact(1), error_x, error_v});*/
-/**/
-/*    }*/
-/**/
-/*    std::cout << "Simulation complete. Data saved to 'simulation_output.csv'.\n";*/
-/*    return 0;*/
-/*}*/
 #include "DormandPrince853.h"
 #include "MassSpringDamper.h"
 #include "MathTools.h"
 #include "Telemetry.h"
 #include "Sim.h"
+#include <cstdlib>
 #include <iostream>
 #include <filesystem>
+#include <iomanip>
+#include <ctime>
+#include <sstream>
 
 int main() {
+    auto t = std::time(nullptr);
+    auto tm = *std::localtime(&t);
+    std::ostringstream oss;
+    oss << std::put_time(&tm, "%m_%d_%Y_%H_%M_%S");
+    auto str = oss.str();
+    std::string outDir = "Output/" + str + "/";
+
     // Create output directory if it doesn't exist
-    std::filesystem::create_directories("Output");
+    std::filesystem::create_directories(outDir);
 
     // System parameters
     double m = 1.0, k = 10.0, b = 0.5, F = 5.0, w = 2.0;
     MassSpringDamper system(m, k, b, F, w);
 
     // Initial conditions
-    MathTools::StateVector initialState(1., 0.); // x0 = 1.0, v0 = 0.0
+    MathTools::StateVector initialState(0., 0.); // x0 = 1.0, v0 = 0.0
+    MathTools::DerivativeVector derivatives(0., 0.);
     
     // Integration parameters
     double t0 = 0.0, tf = 10.0;
@@ -74,11 +40,13 @@ int main() {
     int numOutputPoints = 1000;
     
     // Create output handler
-    Output numericalOutput(numOutputPoints);
+    Output numericalOutput(numOutputPoints, 2000);
     
     // Create exact solution output
-    Output exactOutput(numOutputPoints);
+    Output exactOutput(numOutputPoints, 2000);
     exactOutput.initialize(2, t0, tf);  // Same dimensions as numerical
+    
+    /*system(t0, initialState, derivatives);*/
     
     // Create ODE integrator
     Sim<Dopr853::DormandPrince853<MassSpringDamper>> solver(
@@ -92,6 +60,8 @@ int main() {
     // Now compute exact solution at the same time points
     const std::vector<double>& timePoints = numericalOutput.getTimePoints();
     const int numSteps = numericalOutput.getSavedCount();
+
+    std::cout << "Integration complete. Saved " << numSteps << " points." << std::endl;
     
     for (int i = 0; i < numSteps; i++) {
         double t = timePoints[i];
@@ -100,11 +70,11 @@ int main() {
     }
     
     // Write results to separate files
-    numericalOutput.writeToFile("Output/numerical_solution.csv");
-    exactOutput.writeToFile("Output/exact_solution.csv");
+    numericalOutput.writeToFile(outDir + "numerical_solution.csv");
+    exactOutput.writeToFile(outDir + "exact_solution.csv");
     
     // Also create a comparison file with both solutions and error
-    Telemetry comparison("Output/comparison.csv", 
+    Telemetry comparison(outDir + "comparison.csv", 
                         {"Time", "Num_X", "Num_V", "Exact_X", "Exact_V", "Error_X", "Error_V"});
     
     const std::vector<std::vector<double>>& numStates = numericalOutput.getStatePoints();
@@ -122,7 +92,8 @@ int main() {
         comparison.log({t, num_x, num_v, exact_x, exact_v, error_x, error_v});
     }
     
-    std::cout << "Simulation complete. Data saved to CSV files in the Output directory.\n";
+    std::cout << "Simulation complete. Data saved to CSV files in the Output directory..." << std::endl;
+    std::cout << "Outputs written to: " << outDir << std::endl;
     return 0;
 }
 

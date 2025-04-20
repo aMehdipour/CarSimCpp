@@ -90,6 +90,8 @@ void Sim<IntegratorType>::integrate(OutputHandler& output, DerivativeFunction& d
             ++numFailedSteps_;
         }
 
+        currentTime_ += integrator_.stepSizeController_.nextStepSize_;
+
         if (flagUseDenseOutput_) {
             output.processOutput(stepCount_, currentTime_, stateVector_, integrator_, stepSize_);
         } else {
@@ -114,6 +116,6 @@ void Sim<IntegratorType>::integrate(OutputHandler& output, DerivativeFunction& d
         stepSize_ = integrator_.stepSizeController_.nextStepSize_;
     }
 
-    /*throw std::runtime_error("[Sim.h] ERROR Reached max integration steps!!!");*/
+    throw std::runtime_error("[Sim.h] ERROR Reached max integration steps!!!");
 }
 

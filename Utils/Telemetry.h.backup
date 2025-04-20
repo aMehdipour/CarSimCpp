@@ -48,7 +48,7 @@ private:
 
 class Output {
 public:
-    // Default constructor -- no output
+    // Default construcor -- no output
     Output() : maxPoints_(-1), flagUseDenseOutput_(false), savedCount_(0) {};
 
     // Constructor for normal or dense output
@@ -152,7 +152,6 @@ public:
         }
     }
 
-    // Add method to write results to a file
     void writeToFile(const std::string& filename) {
         std::ofstream file(filename);
         if (!file.is_open()) {
@@ -178,18 +177,13 @@ public:
         file.close();
     }
 
-    // Accessors with fixed return types
-    bool useDenseOutput() const { return flagUseDenseOutput_; }
-    int getMaxPoints() const { return maxPoints_; }
-    double getLastSavedTime() const { return savedCount_ > 0 ? timePoints_[savedCount_-1] : 0.; }
-    
-    // Compatibility methods for existing code
     bool getUseDenseOutput() const { return flagUseDenseOutput_; }
-    
-    // Getter for stored data
+    int getMaxPoints() const { return maxPoints_; }
+    double getLastSavedTime() const { return savedCount_ > 0 ? timePoints_[savedCount_] : 0.; }
+    int getSavedCount() const { return savedCount_; }
+
     const std::vector<double>& getTimePoints() const { return timePoints_; }
     const std::vector<std::vector<double>>& getStatePoints() const { return statePoints_; }
-    int getSavedCount() const { return savedCount_; }
 
 private:
     int maxPoints_;
@@ -207,3 +201,4 @@ private:
     std::vector<double> timePoints_;
     std::vector<std::vector<double>> statePoints_;
 };
+

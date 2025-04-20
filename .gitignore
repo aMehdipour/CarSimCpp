@@ -39,4 +39,6 @@
 *.cache
 *.clangd
 RefactorCode/*
+build/*
+*.internal
 

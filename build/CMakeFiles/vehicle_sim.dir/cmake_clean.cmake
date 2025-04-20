@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/vehicle_sim.dir/link.d"
-  "CMakeFiles/vehicle_sim.dir/main.cpp.o"
-  "CMakeFiles/vehicle_sim.dir/main.cpp.o.d"
+  "CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o"
+  "CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o.d"
   "vehicle_sim"
   "vehicle_sim.pdb"
 )

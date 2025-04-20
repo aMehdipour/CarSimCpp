@@ -70,6 +70,7 @@ all: Integrator/all
 all: ThirdParty/nholmann/all
 all: TireModel/all
 all: Utils/all
+all: Test/all
 .PHONY : all
 
 # The main recursive "codegen" target.
@@ -80,6 +81,7 @@ codegen: Integrator/codegen
 codegen: ThirdParty/nholmann/codegen
 codegen: TireModel/codegen
 codegen: Utils/codegen
+codegen: Test/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -89,6 +91,7 @@ preinstall: Integrator/preinstall
 preinstall: ThirdParty/nholmann/preinstall
 preinstall: TireModel/preinstall
 preinstall: Utils/preinstall
+preinstall: Test/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -99,6 +102,7 @@ clean: Integrator/clean
 clean: ThirdParty/nholmann/clean
 clean: TireModel/clean
 clean: Utils/clean
+clean: Test/clean
 .PHONY : clean
 
 #=============================================================================
@@ -124,11 +128,11 @@ Car/clean: Car/CMakeFiles/BicycleModel.dir/clean
 # Directory level rules for directory Integrator
 
 # Recursive "all" directory target.
-Integrator/all: Integrator/CMakeFiles/EulerIntegrator.dir/all
+Integrator/all: Integrator/CMakeFiles/Integrator.dir/all
 .PHONY : Integrator/all
 
 # Recursive "codegen" directory target.
-Integrator/codegen: Integrator/CMakeFiles/EulerIntegrator.dir/codegen
+Integrator/codegen: Integrator/CMakeFiles/Integrator.dir/codegen
 .PHONY : Integrator/codegen
 
 # Recursive "preinstall" directory target.
@@ -136,7 +140,7 @@ Integrator/preinstall:
 .PHONY : Integrator/preinstall
 
 # Recursive "clean" directory target.
-Integrator/clean: Integrator/CMakeFiles/EulerIntegrator.dir/clean
+Integrator/clean: Integrator/CMakeFiles/Integrator.dir/clean
 .PHONY : Integrator/clean
 
 #=============================================================================
@@ -157,6 +161,25 @@ Sim/preinstall:
 # Recursive "clean" directory target.
 Sim/clean:
 .PHONY : Sim/clean
+
+#=============================================================================
+# Directory level rules for directory Test
+
+# Recursive "all" directory target.
+Test/all: Test/CMakeFiles/Test.dir/all
+.PHONY : Test/all
+
+# Recursive "codegen" directory target.
+Test/codegen: Test/CMakeFiles/Test.dir/codegen
+.PHONY : Test/codegen
+
+# Recursive "preinstall" directory target.
+Test/preinstall:
+.PHONY : Test/preinstall
+
+# Recursive "clean" directory target.
+Test/clean: Test/CMakeFiles/Test.dir/clean
+.PHONY : Test/clean
 
 #=============================================================================
 # Directory level rules for directory ThirdParty/nholmann
@@ -219,13 +242,13 @@ Utils/clean: Utils/CMakeFiles/Utils.dir/clean
 # Target rules for target CMakeFiles/vehicle_sim.dir
 
 # All Build rule for target.
-CMakeFiles/vehicle_sim.dir/all: Car/CMakeFiles/BicycleModel.dir/all
-CMakeFiles/vehicle_sim.dir/all: Integrator/CMakeFiles/EulerIntegrator.dir/all
+CMakeFiles/vehicle_sim.dir/all: Integrator/CMakeFiles/Integrator.dir/all
 CMakeFiles/vehicle_sim.dir/all: TireModel/CMakeFiles/TireModel.dir/all
 CMakeFiles/vehicle_sim.dir/all: Utils/CMakeFiles/Utils.dir/all
+CMakeFiles/vehicle_sim.dir/all: Test/CMakeFiles/Test.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=10,11 "Built target vehicle_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=12,13 "Built target vehicle_sim"
 .PHONY : CMakeFiles/vehicle_sim.dir/all
 
 # Build rule for subdir invocation for target.
@@ -242,7 +265,7 @@ vehicle_sim: CMakeFiles/vehicle_sim.dir/rule
 # codegen rule for target.
 CMakeFiles/vehicle_sim.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=10,11 "Finished codegen for target vehicle_sim"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=12,13 "Finished codegen for target vehicle_sim"
 .PHONY : CMakeFiles/vehicle_sim.dir/codegen
 
 # clean rule for target.
@@ -283,36 +306,36 @@ Car/CMakeFiles/BicycleModel.dir/clean:
 .PHONY : Car/CMakeFiles/BicycleModel.dir/clean
 
 #=============================================================================
-# Target rules for target Integrator/CMakeFiles/EulerIntegrator.dir
+# Target rules for target Integrator/CMakeFiles/Integrator.dir
 
 # All Build rule for target.
-Integrator/CMakeFiles/EulerIntegrator.dir/all:
-	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/depend
-	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=3,4 "Built target EulerIntegrator"
-.PHONY : Integrator/CMakeFiles/EulerIntegrator.dir/all
+Integrator/CMakeFiles/Integrator.dir/all:
+	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/depend
+	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=3,4 "Built target Integrator"
+.PHONY : Integrator/CMakeFiles/Integrator.dir/all
 
 # Build rule for subdir invocation for target.
-Integrator/CMakeFiles/EulerIntegrator.dir/rule: cmake_check_build_system
+Integrator/CMakeFiles/Integrator.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integrator/CMakeFiles/EulerIntegrator.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integrator/CMakeFiles/Integrator.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles 0
-.PHONY : Integrator/CMakeFiles/EulerIntegrator.dir/rule
+.PHONY : Integrator/CMakeFiles/Integrator.dir/rule
 
 # Convenience name for target.
-EulerIntegrator: Integrator/CMakeFiles/EulerIntegrator.dir/rule
-.PHONY : EulerIntegrator
+Integrator: Integrator/CMakeFiles/Integrator.dir/rule
+.PHONY : Integrator
 
 # codegen rule for target.
-Integrator/CMakeFiles/EulerIntegrator.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=3,4 "Finished codegen for target EulerIntegrator"
-.PHONY : Integrator/CMakeFiles/EulerIntegrator.dir/codegen
+Integrator/CMakeFiles/Integrator.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=3,4 "Finished codegen for target Integrator"
+.PHONY : Integrator/CMakeFiles/Integrator.dir/codegen
 
 # clean rule for target.
-Integrator/CMakeFiles/EulerIntegrator.dir/clean:
-	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/clean
-.PHONY : Integrator/CMakeFiles/EulerIntegrator.dir/clean
+Integrator/CMakeFiles/Integrator.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/clean
+.PHONY : Integrator/CMakeFiles/Integrator.dir/clean
 
 #=============================================================================
 # Target rules for target TireModel/CMakeFiles/TireModel.dir
@@ -321,7 +344,7 @@ Integrator/CMakeFiles/EulerIntegrator.dir/clean:
 TireModel/CMakeFiles/TireModel.dir/all:
 	$(MAKE) $(MAKESILENT) -f TireModel/CMakeFiles/TireModel.dir/build.make TireModel/CMakeFiles/TireModel.dir/depend
 	$(MAKE) $(MAKESILENT) -f TireModel/CMakeFiles/TireModel.dir/build.make TireModel/CMakeFiles/TireModel.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=5,6,7 "Built target TireModel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=7,8,9 "Built target TireModel"
 .PHONY : TireModel/CMakeFiles/TireModel.dir/all
 
 # Build rule for subdir invocation for target.
@@ -338,7 +361,7 @@ TireModel: TireModel/CMakeFiles/TireModel.dir/rule
 # codegen rule for target.
 TireModel/CMakeFiles/TireModel.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f TireModel/CMakeFiles/TireModel.dir/build.make TireModel/CMakeFiles/TireModel.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=5,6,7 "Finished codegen for target TireModel"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=7,8,9 "Finished codegen for target TireModel"
 .PHONY : TireModel/CMakeFiles/TireModel.dir/codegen
 
 # clean rule for target.
@@ -353,7 +376,7 @@ TireModel/CMakeFiles/TireModel.dir/clean:
 Utils/CMakeFiles/Utils.dir/all:
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/depend
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=8,9 "Built target Utils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=10,11 "Built target Utils"
 .PHONY : Utils/CMakeFiles/Utils.dir/all
 
 # Build rule for subdir invocation for target.
@@ -370,13 +393,45 @@ Utils: Utils/CMakeFiles/Utils.dir/rule
 # codegen rule for target.
 Utils/CMakeFiles/Utils.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=8,9 "Finished codegen for target Utils"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=10,11 "Finished codegen for target Utils"
 .PHONY : Utils/CMakeFiles/Utils.dir/codegen
 
 # clean rule for target.
 Utils/CMakeFiles/Utils.dir/clean:
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/clean
 .PHONY : Utils/CMakeFiles/Utils.dir/clean
+
+#=============================================================================
+# Target rules for target Test/CMakeFiles/Test.dir
+
+# All Build rule for target.
+Test/CMakeFiles/Test.dir/all:
+	$(MAKE) $(MAKESILENT) -f Test/CMakeFiles/Test.dir/build.make Test/CMakeFiles/Test.dir/depend
+	$(MAKE) $(MAKESILENT) -f Test/CMakeFiles/Test.dir/build.make Test/CMakeFiles/Test.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=5,6 "Built target Test"
+.PHONY : Test/CMakeFiles/Test.dir/all
+
+# Build rule for subdir invocation for target.
+Test/CMakeFiles/Test.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Test/CMakeFiles/Test.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles 0
+.PHONY : Test/CMakeFiles/Test.dir/rule
+
+# Convenience name for target.
+Test: Test/CMakeFiles/Test.dir/rule
+.PHONY : Test
+
+# codegen rule for target.
+Test/CMakeFiles/Test.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f Test/CMakeFiles/Test.dir/build.make Test/CMakeFiles/Test.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=5,6 "Finished codegen for target Test"
+.PHONY : Test/CMakeFiles/Test.dir/codegen
+
+# clean rule for target.
+Test/CMakeFiles/Test.dir/clean:
+	$(MAKE) $(MAKESILENT) -f Test/CMakeFiles/Test.dir/build.make Test/CMakeFiles/Test.dir/clean
+.PHONY : Test/CMakeFiles/Test.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -143,17 +143,17 @@ BicycleModel/fast:
 .PHONY : BicycleModel/fast
 
 #=============================================================================
-# Target rules for targets named EulerIntegrator
+# Target rules for targets named Integrator
 
 # Build rule for target.
-EulerIntegrator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 EulerIntegrator
-.PHONY : EulerIntegrator
+Integrator: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integrator
+.PHONY : Integrator
 
 # fast build rule for target.
-EulerIntegrator/fast:
-	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/build
-.PHONY : EulerIntegrator/fast
+Integrator/fast:
+	$(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/build
+.PHONY : Integrator/fast
 
 #=============================================================================
 # Target rules for targets named TireModel
@@ -181,29 +181,42 @@ Utils/fast:
 	$(MAKE) $(MAKESILENT) -f Utils/CMakeFiles/Utils.dir/build.make Utils/CMakeFiles/Utils.dir/build
 .PHONY : Utils/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+#=============================================================================
+# Target rules for targets named Test
+
+# Build rule for target.
+Test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Test
+.PHONY : Test
+
+# fast build rule for target.
+Test/fast:
+	$(MAKE) $(MAKESILENT) -f Test/CMakeFiles/Test.dir/build.make Test/CMakeFiles/Test.dir/build
+.PHONY : Test/fast
+
+testMassSpring.o: testMassSpring.cpp.o
+.PHONY : testMassSpring.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/main.cpp.o
-.PHONY : main.cpp.o
+testMassSpring.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o
+.PHONY : testMassSpring.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+testMassSpring.i: testMassSpring.cpp.i
+.PHONY : testMassSpring.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/main.cpp.i
-.PHONY : main.cpp.i
+testMassSpring.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.i
+.PHONY : testMassSpring.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+testMassSpring.s: testMassSpring.cpp.s
+.PHONY : testMassSpring.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/main.cpp.s
-.PHONY : main.cpp.s
+testMassSpring.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.s
+.PHONY : testMassSpring.cpp.s
 
 # Help Target
 help:
@@ -214,13 +227,14 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... BicycleModel"
-	@echo "... EulerIntegrator"
+	@echo "... Integrator"
+	@echo "... Test"
 	@echo "... TireModel"
 	@echo "... Utils"
 	@echo "... vehicle_sim"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... testMassSpring.o"
+	@echo "... testMassSpring.i"
+	@echo "... testMassSpring.s"
 .PHONY : help
 
 

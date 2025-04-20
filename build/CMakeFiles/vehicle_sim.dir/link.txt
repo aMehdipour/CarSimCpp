@@ -1,1 +1,1 @@
-clang++ -g -Wl,--dependency-file=CMakeFiles/vehicle_sim.dir/link.d CMakeFiles/vehicle_sim.dir/main.cpp.o -o vehicle_sim  Car/libBicycleModel.a Integrator/libEulerIntegrator.a TireModel/libTireModel.a Utils/libUtils.a
+clang++ -g -Wl,--dependency-file=CMakeFiles/vehicle_sim.dir/link.d CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o -o vehicle_sim  TireModel/libTireModel.a Utils/libUtils.a Integrator/libIntegrator.a Test/libTest.a

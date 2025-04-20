@@ -72,34 +72,34 @@ include CMakeFiles/vehicle_sim.dir/flags.make
 CMakeFiles/vehicle_sim.dir/codegen:
 .PHONY : CMakeFiles/vehicle_sim.dir/codegen
 
-CMakeFiles/vehicle_sim.dir/main.cpp.o: CMakeFiles/vehicle_sim.dir/flags.make
-CMakeFiles/vehicle_sim.dir/main.cpp.o: /home/amehdipour/Repos/CarSimCpp/main.cpp
-CMakeFiles/vehicle_sim.dir/main.cpp.o: CMakeFiles/vehicle_sim.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vehicle_sim.dir/main.cpp.o"
-	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vehicle_sim.dir/main.cpp.o -MF CMakeFiles/vehicle_sim.dir/main.cpp.o.d -o CMakeFiles/vehicle_sim.dir/main.cpp.o -c /home/amehdipour/Repos/CarSimCpp/main.cpp
+CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o: CMakeFiles/vehicle_sim.dir/flags.make
+CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o: /home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp
+CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o: CMakeFiles/vehicle_sim.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o -MF CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o.d -o CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o -c /home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp
 
-CMakeFiles/vehicle_sim.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vehicle_sim.dir/main.cpp.i"
-	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amehdipour/Repos/CarSimCpp/main.cpp > CMakeFiles/vehicle_sim.dir/main.cpp.i
+CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp > CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.i
 
-CMakeFiles/vehicle_sim.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vehicle_sim.dir/main.cpp.s"
-	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amehdipour/Repos/CarSimCpp/main.cpp -o CMakeFiles/vehicle_sim.dir/main.cpp.s
+CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp -o CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.s
 
 # Object files for target vehicle_sim
 vehicle_sim_OBJECTS = \
-"CMakeFiles/vehicle_sim.dir/main.cpp.o"
+"CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o"
 
 # External object files for target vehicle_sim
 vehicle_sim_EXTERNAL_OBJECTS =
 
-vehicle_sim: CMakeFiles/vehicle_sim.dir/main.cpp.o
+vehicle_sim: CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o
 vehicle_sim: CMakeFiles/vehicle_sim.dir/build.make
 vehicle_sim: CMakeFiles/vehicle_sim.dir/compiler_depend.ts
-vehicle_sim: Car/libBicycleModel.a
-vehicle_sim: Integrator/libEulerIntegrator.a
 vehicle_sim: TireModel/libTireModel.a
 vehicle_sim: Utils/libUtils.a
+vehicle_sim: Integrator/libIntegrator.a
+vehicle_sim: Test/libTest.a
 vehicle_sim: CMakeFiles/vehicle_sim.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable vehicle_sim"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vehicle_sim.dir/link.txt --verbose=$(VERBOSE)

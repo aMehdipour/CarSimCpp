@@ -187,6 +187,8 @@ void DormandPrince853<DerivativeFunction>::computeStages(const double stepSize, 
     for (i = 0; i < stateSize; i++) {
         finalCombination[i] = b1 * derivativeVector_[i] + b6 * k6_[i] + b7 * k7_[i] + b8 * k8_[i] +
             b9 * k9_[i] + b10 * k10_[i] + b11 * k2_[i] + b12 * k3_[i];
+
+        //NOTE: This is the final state vector
         stateVector_[i] = stateVector_[i] + stepSize * finalCombination[i];
     }
 

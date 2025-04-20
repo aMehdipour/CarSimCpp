@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/amehdipour/Repos/CarSimCpp/main.cpp" "CMakeFiles/vehicle_sim.dir/main.cpp.o" "gcc" "CMakeFiles/vehicle_sim.dir/main.cpp.o.d"
+  "/home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp" "CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o" "gcc" "CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o.d"
   "" "vehicle_sim" "gcc" "CMakeFiles/vehicle_sim.dir/link.d"
   )
 

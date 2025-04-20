@@ -26,7 +26,7 @@ void Controller::initialize() {
 //------------------------------------------------------------------------------
 bool Controller::isStepSuccessful(const double error, double &stepSize) {
 
-    const double beta = 0.0;
+    const double beta = 0.;//0.4 / 8.;
     const double alpha = 1.0/8.0 - beta * 0.2;
     const double safetyFactor = 0.9;
     const double minScaleFactor = 0.333;

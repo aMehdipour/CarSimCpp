@@ -50,6 +50,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/amehdipour/Repos/CarSimCpp/build/ThirdParty/nholmann/cmake_install.cmake")
   include("/home/amehdipour/Repos/CarSimCpp/build/TireModel/cmake_install.cmake")
   include("/home/amehdipour/Repos/CarSimCpp/build/Utils/cmake_install.cmake")
+  include("/home/amehdipour/Repos/CarSimCpp/build/Test/cmake_install.cmake")
 
 endif()
 

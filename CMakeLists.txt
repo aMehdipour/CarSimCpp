@@ -16,6 +16,7 @@ include_directories(
     Common
     TireModel
     ThirdParty/nholmann
+    Test
     ${EIGEN3_INCLUDE_DIR}
 )
 
@@ -33,26 +34,30 @@ add_subdirectory(Integrator)
 add_subdirectory(ThirdParty/nholmann)
 add_subdirectory(TireModel)
 add_subdirectory(Utils)
+add_subdirectory(Test)
 
-add_executable(vehicle_sim main.cpp)
+add_executable(vehicle_sim testMassSpring.cpp)
 
 # Link only the selected car and integrator implementations
-if (USE_BICYCLE_MODEL)
-    target_compile_definitions(vehicle_sim PRIVATE CAR_MODEL=BicycleModel)
-    target_link_libraries(vehicle_sim PRIVATE BicycleModel)
-elseif (USE_HIGH_FIDELITY_MODEL)
-    target_compile_definitions(vehicle_sim PRIVATE CAR_MODEL=HighFidelity)
-    target_link_libraries(vehicle_sim PRIVATE HighFidelity)
-endif()
-
-if (USE_EULER_INTEGRATION)
-    target_compile_definitions(vehicle_sim PRIVATE INTEGRATOR_MODEL=EulerIntegrator)
-    target_link_libraries(vehicle_sim PRIVATE EulerIntegrator)
-elseif (USE_RK4_INTEGRATION)
-    target_compile_definitions(vehicle_sim PRIVATE INTEGRATOR_MODEL=RK4Integrator)
-    target_link_libraries(vehicle_sim PRIVATE RK4Integrator)
-endif()
+# if (USE_BICYCLE_MODEL)
+#     target_compile_definitions(vehicle_sim PRIVATE CAR_MODEL=BicycleModel)
+#     target_link_libraries(vehicle_sim PRIVATE BicycleModel)
+# elseif (USE_HIGH_FIDELITY_MODEL)
+#     target_compile_definitions(vehicle_sim PRIVATE CAR_MODEL=HighFidelity)
+#     target_link_libraries(vehicle_sim PRIVATE HighFidelity)
+# endif()
+#
+# if (USE_EULER_INTEGRATION)
+#     target_compile_definitions(vehicle_sim PRIVATE INTEGRATOR_MODEL=EulerIntegrator)
+#     target_link_libraries(vehicle_sim PRIVATE EulerIntegrator)
+# elseif (USE_RK4_INTEGRATION)
+#     target_compile_definitions(vehicle_sim PRIVATE INTEGRATOR_MODEL=RK4Integrator)
+#     target_link_libraries(vehicle_sim PRIVATE RK4Integrator)
+# endif()
 
 target_link_libraries(vehicle_sim PRIVATE Sim)
 target_link_libraries(vehicle_sim PRIVATE TireModel)
 target_link_libraries(vehicle_sim PRIVATE Utils)
+target_link_libraries(vehicle_sim PRIVATE Integrator)
+target_link_libraries(vehicle_sim PRIVATE Test)
+

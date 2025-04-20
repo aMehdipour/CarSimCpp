@@ -117,42 +117,42 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-Integrator/CMakeFiles/EulerIntegrator.dir/rule:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integrator/CMakeFiles/EulerIntegrator.dir/rule
-.PHONY : Integrator/CMakeFiles/EulerIntegrator.dir/rule
+Integrator/CMakeFiles/Integrator.dir/rule:
+	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Integrator/CMakeFiles/Integrator.dir/rule
+.PHONY : Integrator/CMakeFiles/Integrator.dir/rule
 
 # Convenience name for target.
-EulerIntegrator: Integrator/CMakeFiles/EulerIntegrator.dir/rule
-.PHONY : EulerIntegrator
+Integrator: Integrator/CMakeFiles/Integrator.dir/rule
+.PHONY : Integrator
 
 # fast build rule for target.
-EulerIntegrator/fast:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/build
-.PHONY : EulerIntegrator/fast
+Integrator/fast:
+	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/build
+.PHONY : Integrator/fast
 
-EulerIntegrator.o: EulerIntegrator.cpp.o
-.PHONY : EulerIntegrator.o
+PIController.o: PIController.cpp.o
+.PHONY : PIController.o
 
 # target to build an object file
-EulerIntegrator.cpp.o:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/EulerIntegrator.cpp.o
-.PHONY : EulerIntegrator.cpp.o
+PIController.cpp.o:
+	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/PIController.cpp.o
+.PHONY : PIController.cpp.o
 
-EulerIntegrator.i: EulerIntegrator.cpp.i
-.PHONY : EulerIntegrator.i
+PIController.i: PIController.cpp.i
+.PHONY : PIController.i
 
 # target to preprocess a source file
-EulerIntegrator.cpp.i:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/EulerIntegrator.cpp.i
-.PHONY : EulerIntegrator.cpp.i
+PIController.cpp.i:
+	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/PIController.cpp.i
+.PHONY : PIController.cpp.i
 
-EulerIntegrator.s: EulerIntegrator.cpp.s
-.PHONY : EulerIntegrator.s
+PIController.s: PIController.cpp.s
+.PHONY : PIController.s
 
 # target to generate assembly for a file
-EulerIntegrator.cpp.s:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/EulerIntegrator.dir/build.make Integrator/CMakeFiles/EulerIntegrator.dir/EulerIntegrator.cpp.s
-.PHONY : EulerIntegrator.cpp.s
+PIController.cpp.s:
+	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Integrator/CMakeFiles/Integrator.dir/build.make Integrator/CMakeFiles/Integrator.dir/PIController.cpp.s
+.PHONY : PIController.cpp.s
 
 # Help Target
 help:
@@ -162,10 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... EulerIntegrator"
-	@echo "... EulerIntegrator.o"
-	@echo "... EulerIntegrator.i"
-	@echo "... EulerIntegrator.s"
+	@echo "... Integrator"
+	@echo "... PIController.o"
+	@echo "... PIController.i"
+	@echo "... PIController.s"
 .PHONY : help
 
 

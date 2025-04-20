@@ -1,0 +1,45 @@
+#include <DormandPrince853.h>
+#include "MassSpringDamper.h"
+#include <MathTools.h>
+#include "Telemetry.h"
+#include <iostream>
+
+int main() {
+    MathTools::StateVector state;
+    MathTools::DerivativeVector derivatives;
+    MathTools::DerivativeVector initialStateDerivatives;
+    // System parameters
+    double m = 1.0, k = 10.0, b = 0.5, F = 5.0, w = 2.0;
+    MassSpringDamper system(m, k, b, F, w);
+
+    // Initial conditions
+    state << 1.0, 0.0;  // x0 = 1.0, v0 = 0.0
+    derivatives << 0.0, 0.0;
+    double t0 = 0.0, tf = 10.0, dt = 0.01;
+    double t = t0;
+    DormandPrince853<MassSpringDamper> integrator(state, derivatives, t0, 1e-6, 1e-6, true);
+
+    // Setup telemetry logger
+    Telemetry telemetry("simulation_output.csv", {"Time", "Num_X", "Num_V", "Exact_X", "Exact_V", "Error_X", "Error_V"});
+
+    // Simulation loop
+    while (t < tf) {
+        // Store exact solution
+        Eigen::Vector2d exact = system.exact_solution(t, m, k, b, F, w, state(0), state(1));
+
+        // Compute error
+        double error_x = std::abs(state(0) - exact(0));
+        double error_v = std::abs(state(1) - exact(1));
+
+        // Log to file
+        telemetry.log({t, state(0), state(1), exact(0), exact(1), error_x, error_v});
+
+        // Integrate system
+        integrator.step(dt, system);
+        t += dt;
+    }
+
+    std::cout << "Simulation complete. Data saved to 'simulation_output.csv'.\n";
+    return 0;
+}
+

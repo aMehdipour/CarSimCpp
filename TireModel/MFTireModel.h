@@ -11,7 +11,7 @@ class MFTireModel : public TireModel {
 public:
     bool configure(const json config);
     
-    void computeLateralForce(double& Fx, double& Fy, double vx, double vy, double camberAngle, double slipRatio, double slipAngle, double normalLoad) const override;
+    void computeTireForces(double& Fx, double& Fy, double vx, double vy, double camberAngle, double slipRatio, double slipAngle, double normalLoad) const override;
 
 private:
     MFCoefficients coeffs_;

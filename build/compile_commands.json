@@ -1,9 +1,39 @@
 [
 {
   "directory": "/home/amehdipour/Repos/CarSimCpp/build",
-  "command": "clang++ -DUSE_DORMAND_PRINCE -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o -c /home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/carsim_main.dir/main.cpp.o -c /home/amehdipour/Repos/CarSimCpp/main.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/main.cpp",
+  "output": "CMakeFiles/carsim_main.dir/main.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build",
+  "command": "clang++ -DUSE_DORMAND_PRINCE -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/test_integrator.dir/testMassSpring.cpp.o -c /home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp",
   "file": "/home/amehdipour/Repos/CarSimCpp/testMassSpring.cpp",
-  "output": "CMakeFiles/vehicle_sim.dir/testMassSpring.cpp.o"
+  "output": "CMakeFiles/test_integrator.dir/testMassSpring.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/test_tire_model.dir/Test/testTireModel.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModel.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModel.cpp",
+  "output": "CMakeFiles/test_tire_model.dir/Test/testTireModel.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/test_tire_debug.dir/Test/testTireModelDebug.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebug.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebug.cpp",
+  "output": "CMakeFiles/test_tire_debug.dir/Test/testTireModelDebug.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/test_tire_debug_detailed.dir/Test/testTireModelDebugDetailed.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebugDetailed.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebugDetailed.cpp",
+  "output": "CMakeFiles/test_tire_debug_detailed.dir/Test/testTireModelDebugDetailed.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/test_tire_load.dir/Test/testTireModelLoadDependence.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModelLoadDependence.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModelLoadDependence.cpp",
+  "output": "CMakeFiles/test_tire_load.dir/Test/testTireModelLoadDependence.cpp.o"
 },
 {
   "directory": "/home/amehdipour/Repos/CarSimCpp/build/Car",
@@ -40,5 +70,29 @@
   "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/Test.dir/testTirParsing.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTirParsing.cpp",
   "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTirParsing.cpp",
   "output": "Test/CMakeFiles/Test.dir/testTirParsing.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build/Test",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/Test.dir/testTireModel.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModel.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModel.cpp",
+  "output": "Test/CMakeFiles/Test.dir/testTireModel.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build/Test",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/Test.dir/testTireModelDebug.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebug.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebug.cpp",
+  "output": "Test/CMakeFiles/Test.dir/testTireModelDebug.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build/Test",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/Test.dir/testTireModelDebugDetailed.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebugDetailed.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModelDebugDetailed.cpp",
+  "output": "Test/CMakeFiles/Test.dir/testTireModelDebugDetailed.cpp.o"
+},
+{
+  "directory": "/home/amehdipour/Repos/CarSimCpp/build/Test",
+  "command": "clang++  -I/home/amehdipour/Repos/CarSimCpp/Car -I/home/amehdipour/Repos/CarSimCpp/Sim -I/home/amehdipour/Repos/CarSimCpp/Integrator -I/home/amehdipour/Repos/CarSimCpp/Utils -I/home/amehdipour/Repos/CarSimCpp/Common -I/home/amehdipour/Repos/CarSimCpp/TireModel -I/home/amehdipour/Repos/CarSimCpp/ThirdParty/nholmann -I/home/amehdipour/Repos/CarSimCpp/Test -I/usr/include/eigen3 -g -std=gnu++20 -o CMakeFiles/Test.dir/testTireModelLoadDependence.cpp.o -c /home/amehdipour/Repos/CarSimCpp/Test/testTireModelLoadDependence.cpp",
+  "file": "/home/amehdipour/Repos/CarSimCpp/Test/testTireModelLoadDependence.cpp",
+  "output": "Test/CMakeFiles/Test.dir/testTireModelLoadDependence.cpp.o"
 }
 ]

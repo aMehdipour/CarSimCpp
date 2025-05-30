@@ -42,6 +42,7 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         {"PCX1",            & MFCoefficients::PCX1_},
         {"PDX1",            & MFCoefficients::PDX1_},
         {"PDX2",            & MFCoefficients::PDX2_},
+        {"PDX3",            & MFCoefficients::PDX3_},
         {"PEX1",            & MFCoefficients::PEX1_},
         {"PEX2",            & MFCoefficients::PEX2_},
         {"PEX3",            & MFCoefficients::PEX3_},
@@ -53,6 +54,10 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         {"PHX2",            & MFCoefficients::PHX2_},
         {"PVX1",            & MFCoefficients::PVX1_},
         {"PVX2",            & MFCoefficients::PVX2_},
+        {"PPX1",            & MFCoefficients::PPX1_},
+        {"PPX2",            & MFCoefficients::PPX2_},
+        {"PPX3",            & MFCoefficients::PPX3_},
+        {"PPX4",            & MFCoefficients::PPX4_},
         {"QSY1",            & MFCoefficients::QSY1_},
         {"QSY2",            & MFCoefficients::QSY2_},
         {"QBZ1",            & MFCoefficients::QBZ1_},
@@ -83,12 +88,22 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         {"PEY2",            & MFCoefficients::PEY2_},
         {"PEY3",            & MFCoefficients::PEY3_},
         {"PEY4",            & MFCoefficients::PEY4_},
+        {"PEY5",            & MFCoefficients::PEY5_},
         {"PHY1",            & MFCoefficients::PHY1_},
         {"PHY2",            & MFCoefficients::PHY2_},
         {"PHY3",            & MFCoefficients::PHY3_},
         {"PKY1",            & MFCoefficients::PKY1_},
         {"PKY2",            & MFCoefficients::PKY2_},
         {"PKY3",            & MFCoefficients::PKY3_},
+        {"PKY4",            & MFCoefficients::PKY4_},
+        {"PKY5",            & MFCoefficients::PKY5_},
+        {"PKY6",            & MFCoefficients::PKY6_},
+        {"PKY7",            & MFCoefficients::PKY7_},
+        {"PPY1",            & MFCoefficients::PPY1_},
+        {"PPY2",            & MFCoefficients::PPY2_},
+        {"PPY3",            & MFCoefficients::PPY3_},
+        {"PPY4",            & MFCoefficients::PPY4_},
+        {"PPY5",            & MFCoefficients::PPY5_},
         {"PKYP1",           & MFCoefficients::PKYP1_},
         {"PVY1",            & MFCoefficients::PVY1_},
         {"PVY2",            & MFCoefficients::PVY2_},
@@ -147,7 +162,7 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
             std::cout << "-- Member Variable: " << it->first << " = " << this->*(it->second) << std::endl;
         } else {
             std::cout << "Field not found: " << pair.first << ". Setting to zero..."<< std::endl;
-            this->*(it->second) = 0.;
+            /*this->*(it->second) = 0.;*/
 
         }
 

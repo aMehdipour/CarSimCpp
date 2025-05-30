@@ -3,7 +3,7 @@
         "model" : "Linear",
         "C_alphaF" : 80000.0,
         "C_alphaR" : 80000.0,
-        "tirPath" : "/home/amehdipour/Repos/CarSimCpp/Data/ParsedTirCsv/H_R20_18X6_7_Coeffs.csv"
+        "tirPath" : "/home/amehdipour/Repos/CarSimCpp/Data/ParsedTirCsv/H_R20_18X6_6_Coeffs.csv"
     },
     "car" : {
         "mass" : 69.0,

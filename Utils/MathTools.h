@@ -23,8 +23,10 @@ typedef Vector<double, CarConstants::NUM_STATES> StateVector;
 typedef Vector<double, CarConstants::NUM_STATES> DerivativeVector;
 typedef Vector<double, CarConstants::NUM_INPUT_STATES> InputVector;
 typedef Vector<double, CarConstants::NUM_CONTROL_INPUTS> ControlInputVector;
+typedef Vector<double, 2> StateVectorMassSpring;
+typedef Vector<double, 2> DerivativeVectorMassSpring;
 
-template <typename T> 
+template <typename T>
 int sign(T val) {
     return (T(0) < val) - (val < T(0));
 }

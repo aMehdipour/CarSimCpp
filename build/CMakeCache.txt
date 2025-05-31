@@ -192,6 +192,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 //The directory containing a CMake configuration file for Eigen3.
 Eigen3_DIR:PATH=/usr/share/eigen3/cmake
 
+//Dependencies for the target
+TireModel_LIB_DEPENDS:STATIC=general;Utils;
+
 //Use Bicycle Model for Car
 USE_BICYCLE_MODEL:BOOL=ON
 

@@ -1,5 +1,4 @@
 /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles/carsim_main.dir
-/home/amehdipour/Repos/CarSimCpp/build/CMakeFiles/test_integrator.dir
 /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles/test_tire_model.dir
 /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles/test_tire_debug.dir
 /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles/test_tire_debug_detailed.dir
@@ -8,7 +7,6 @@
 /home/amehdipour/Repos/CarSimCpp/build/CMakeFiles/rebuild_cache.dir
 /home/amehdipour/Repos/CarSimCpp/build/Sim/CMakeFiles/edit_cache.dir
 /home/amehdipour/Repos/CarSimCpp/build/Sim/CMakeFiles/rebuild_cache.dir
-/home/amehdipour/Repos/CarSimCpp/build/Car/CMakeFiles/BicycleModel.dir
 /home/amehdipour/Repos/CarSimCpp/build/Car/CMakeFiles/edit_cache.dir
 /home/amehdipour/Repos/CarSimCpp/build/Car/CMakeFiles/rebuild_cache.dir
 /home/amehdipour/Repos/CarSimCpp/build/Integrator/CMakeFiles/Integrator.dir

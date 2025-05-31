@@ -6,8 +6,9 @@
         "tirPath" : "/home/amehdipour/Repos/CarSimCpp/Data/ParsedTirCsv/H_R20_18X6_6_Coeffs.csv"
     },
     "car" : {
-        "mass" : 69.0,
+        "mass" : 690.0,
         "Izz" : 69.0,
+        "wheelbase" : 60.5,
         "frontWeightBias" : 0.5
     }
 }

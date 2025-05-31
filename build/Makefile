@@ -130,19 +130,6 @@ carsim_main/fast:
 .PHONY : carsim_main/fast
 
 #=============================================================================
-# Target rules for targets named test_integrator
-
-# Build rule for target.
-test_integrator: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_integrator
-.PHONY : test_integrator
-
-# fast build rule for target.
-test_integrator/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_integrator.dir/build.make CMakeFiles/test_integrator.dir/build
-.PHONY : test_integrator/fast
-
-#=============================================================================
 # Target rules for targets named test_tire_model
 
 # Build rule for target.
@@ -193,19 +180,6 @@ test_tire_load: cmake_check_build_system
 test_tire_load/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_tire_load.dir/build.make CMakeFiles/test_tire_load.dir/build
 .PHONY : test_tire_load/fast
-
-#=============================================================================
-# Target rules for targets named BicycleModel
-
-# Build rule for target.
-BicycleModel: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BicycleModel
-.PHONY : BicycleModel
-
-# fast build rule for target.
-BicycleModel/fast:
-	$(MAKE) $(MAKESILENT) -f Car/CMakeFiles/BicycleModel.dir/build.make Car/CMakeFiles/BicycleModel.dir/build
-.PHONY : BicycleModel/fast
 
 #=============================================================================
 # Target rules for targets named Integrator
@@ -379,30 +353,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/carsim_main.dir/build.make CMakeFiles/carsim_main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-testMassSpring.o: testMassSpring.cpp.o
-.PHONY : testMassSpring.o
-
-# target to build an object file
-testMassSpring.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_integrator.dir/build.make CMakeFiles/test_integrator.dir/testMassSpring.cpp.o
-.PHONY : testMassSpring.cpp.o
-
-testMassSpring.i: testMassSpring.cpp.i
-.PHONY : testMassSpring.i
-
-# target to preprocess a source file
-testMassSpring.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_integrator.dir/build.make CMakeFiles/test_integrator.dir/testMassSpring.cpp.i
-.PHONY : testMassSpring.cpp.i
-
-testMassSpring.s: testMassSpring.cpp.s
-.PHONY : testMassSpring.s
-
-# target to generate assembly for a file
-testMassSpring.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_integrator.dir/build.make CMakeFiles/test_integrator.dir/testMassSpring.cpp.s
-.PHONY : testMassSpring.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -411,13 +361,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... BicycleModel"
 	@echo "... Integrator"
 	@echo "... Test"
 	@echo "... TireModel"
 	@echo "... Utils"
 	@echo "... carsim_main"
-	@echo "... test_integrator"
 	@echo "... test_tire_debug"
 	@echo "... test_tire_debug_detailed"
 	@echo "... test_tire_load"
@@ -437,9 +385,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... testMassSpring.o"
-	@echo "... testMassSpring.i"
-	@echo "... testMassSpring.s"
 .PHONY : help
 
 

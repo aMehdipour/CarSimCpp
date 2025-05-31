@@ -58,7 +58,7 @@ echo "Running CMake with -DUSE_${model}_MODEL=ON -DUSE_${integrator}_INTEGRATION
 cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DUSE_${MODEL^^}_MODEL=ON -DUSE_${INTEGRATOR^^}_INTEGRATION=ON
 
 # Build project
-echo "Building project..."
+echo "Building project in $BUILD_TYPE mode..."
 cmake --build . --config $BUILD_TYPE
 
 # Copy compile_commands.json to root directory
@@ -66,8 +66,8 @@ if [[ -f "compile_commands.json" ]]; then
     cp compile_commands.json ..
 fi
 
-if [[ -f "./vehicle_sim" ]]; then
-    cp ./vehicle_sim ..
-elif [[ -f "./$BUILD_TYPE/vehicle_sim" ]]; then
-    cp ./$BUILD_TYPE/vehicle_sim ..
+if [[ -f "./carsim_main" ]]; then
+    cp ./carsim_main ..
+elif [[ -f "./$BUILD_TYPE/carsim_main" ]]; then
+    cp ./$BUILD_TYPE/carsim_main ..
 fi

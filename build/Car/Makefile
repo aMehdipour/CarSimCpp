@@ -116,44 +116,6 @@ depend:
 	cd /home/amehdipour/Repos/CarSimCpp/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-Car/CMakeFiles/BicycleModel.dir/rule:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Car/CMakeFiles/BicycleModel.dir/rule
-.PHONY : Car/CMakeFiles/BicycleModel.dir/rule
-
-# Convenience name for target.
-BicycleModel: Car/CMakeFiles/BicycleModel.dir/rule
-.PHONY : BicycleModel
-
-# fast build rule for target.
-BicycleModel/fast:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Car/CMakeFiles/BicycleModel.dir/build.make Car/CMakeFiles/BicycleModel.dir/build
-.PHONY : BicycleModel/fast
-
-BicycleModel.o: BicycleModel.cpp.o
-.PHONY : BicycleModel.o
-
-# target to build an object file
-BicycleModel.cpp.o:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Car/CMakeFiles/BicycleModel.dir/build.make Car/CMakeFiles/BicycleModel.dir/BicycleModel.cpp.o
-.PHONY : BicycleModel.cpp.o
-
-BicycleModel.i: BicycleModel.cpp.i
-.PHONY : BicycleModel.i
-
-# target to preprocess a source file
-BicycleModel.cpp.i:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Car/CMakeFiles/BicycleModel.dir/build.make Car/CMakeFiles/BicycleModel.dir/BicycleModel.cpp.i
-.PHONY : BicycleModel.cpp.i
-
-BicycleModel.s: BicycleModel.cpp.s
-.PHONY : BicycleModel.s
-
-# target to generate assembly for a file
-BicycleModel.cpp.s:
-	cd /home/amehdipour/Repos/CarSimCpp/build && $(MAKE) $(MAKESILENT) -f Car/CMakeFiles/BicycleModel.dir/build.make Car/CMakeFiles/BicycleModel.dir/BicycleModel.cpp.s
-.PHONY : BicycleModel.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,10 +124,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... BicycleModel"
-	@echo "... BicycleModel.o"
-	@echo "... BicycleModel.i"
-	@echo "... BicycleModel.s"
 .PHONY : help
 
 

@@ -23,7 +23,11 @@ public:
         relativeTolerance_(relativeTolerance),
         flagUseDenseOutput_(flagDenseOutput),
         numStates_(initialState.size()),
-        numEquations_(initialDerivatives.size()) { }
+        numEquations_(initialDerivatives.size())
+    {
+        errorEstimate1_.setZero();
+        stateVectorOut_.setZero();
+    }
 
     MathTools::StateVector stateVector_;
     MathTools::StateVector stateVectorOut_;

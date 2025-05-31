@@ -8,7 +8,7 @@ template <typename IntegratorType>
 class Sim {
 public:
     template <class DerivativeFunction, class OutputHandler>
-    Sim(MathTools::StateVector& initialState,
+    Sim(MathTools::StateVector& initialState, MathTools::DerivativeVector& initialDerivatives,
            const double startTime, const double endTime,
            const double absoluteTolerance, const double relativeTolerance,
            const double initialStepSize, const double minStepSize,
@@ -42,15 +42,16 @@ private:
 template <class IntegratorType>
 template <class DerivativeFunction, class OutputHandler>
 Sim<IntegratorType>::Sim(
-    MathTools::StateVector& initialState,
+    MathTools::StateVector& initialState, MathTools::DerivativeVector& initialDerivatives,
     const double startTime, const double endTime,
     const double absoluteTolerance, const double relativeTolerance,
     const double initialStepSize, const double minStepSize,
     OutputHandler& output, DerivativeFunction& derivativeFunction)
     :
     numStates_(initialState.size()),
-    stateVector_(numStates_),
+    stateVector_(initialState),
     initialState_(initialState),
+    derivativeVector_(initialDerivatives),
     currentTime_(startTime),
     numSuccessfulSteps_(0),
     numFailedSteps_(0),
@@ -118,4 +119,3 @@ void Sim<IntegratorType>::integrate(OutputHandler& output, DerivativeFunction& d
 
     throw std::runtime_error("[Sim.h] ERROR Reached max integration steps!!!");
 }
-

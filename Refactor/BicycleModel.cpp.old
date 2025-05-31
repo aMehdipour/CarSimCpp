@@ -1,0 +1,127 @@
+#include "BicycleModel.h"
+#include <iostream>
+#include "CarConstants.h"
+#include "GlobalConstants.h"
+
+using json = nlohmann::json;
+
+template <class TireModel>
+void BicycleModel<TireModel>::simulate() {
+    std::cout << "Simulating Bicycle Model\n";
+}
+
+template <class TireModel>
+void BicycleModel<TireModel>::configure(const json& config) {
+    json carParams = config["car"];
+    json tireParams = config["tire"];
+    // Load parameters from the configuration
+    mass_ = carParams["mass"];
+    mass_ *= GlobalConstants::LBS_TO_KG;
+    wheelbase_ = carParams["wheelbase"];
+    wheelbase_ *= GlobalConstants::INCHES_TO_METERS;
+    frontWeightBias_ = carParams["frontWeightBias"];
+    izz_ = carParams["izz"];
+    izz_ *= GlobalConstants::SLUGS_FT_S2_TO_KG_M_S2;
+
+    // Calculate derived parameters
+    distFrontAxleToCg_ = wheelbase_ * frontWeightBias_;
+    distRearAxleToCg_ = wheelbase_ * (1.0 - frontWeightBias_);
+    rearWeightBias_ = 1.0 - frontWeightBias_;
+
+    // Configure the tire Model
+    bool tireConfigured = tireModel_.configure(tireParams);
+    std::cout << "Bicycle Model configured with mass: " << mass_
+              << ", wheelbase: " << wheelbase_
+              << ", front weight bias: " << frontWeightBias_
+              << ", izz: " << izz_
+              << ", distFrontAxleToCg: " << distFrontAxleToCg_
+              << ", distRearAxleToCg: " << distRearAxleToCg_
+              << std::endl;
+    if (!tireConfigured) {
+        std::cerr << "Error: Failed to configure tire model." << std::endl;
+        std::runtime_error("Tire model configuration failed.");
+    }
+    std::cout << "Tire Model configured." << std::endl;
+}
+
+template <class TireModel>
+void BicycleModel<TireModel>::operator()(double t,
+                                         MathTools::StateVector& state,
+                                         MathTools::DerivativeVector& derivatives) {
+    assert(state.size() == CarConstants::NUM_STATES);
+
+    // Unpack the state...
+    double x      = state(0);
+    double y      = state(1);
+    double psi    = state(2);
+    double beta   = state(3);
+    double r      = state(4);
+    double vxBody = state(5);
+    double vyBody = vxBody * tan(beta); // tan(beta) here because beta = atan(vyBody / vxBody)
+    double delta  = getSteeringInput(t);
+
+    // Compute slip angles for front and rear.
+    assert(vxBody > 0.0);
+    double slipAngleFront = delta - (beta + (distFrontAxleToCg_ * r) / vxBody);
+    double slipAngleRear  = beta - (distRearAxleToCg_ * r) / vxBody;
+
+    // Compute normal forces on front and rear tires.
+    double Fzf = mass_ * GlobalConstants::GRAVITY * distRearAxleToCg_ / wheelbase_;
+    double Fzr = mass_ * GlobalConstants::GRAVITY * distFrontAxleToCg_ / wheelbase_;
+
+    // Construct the rotation matrix from body-fixed to tire frame.
+    MathTools::Mat2 rotTireFromBody;
+    rotTireFromBody(0, 0) = cos(delta);
+    rotTireFromBody(0, 1) = sin(delta);
+    rotTireFromBody(1, 0) = -sin(delta);
+    rotTireFromBody(1, 1) = cos(delta);
+
+    // We must add the contribution of the yaw rate to the body-fixed velocities.
+    MathTools::Vec2 wheelCenterVelF(vxBody, vyBody + r * distFrontAxleToCg_);
+    MathTools::Vec2 wheelCenterVelR(vxBody, vyBody - r * distRearAxleToCg_);
+    wheelCenterVelF = rotTireFromBody * wheelCenterVelF;
+
+    // Extract tire forces
+    double Fyf;
+    double Fyr;
+    double Fxf = 0.0; // Placeholder for longitudinal force on front tireModel
+    double Fxr = 0.0; // Placeholder for longitudinal force on rear tireModel
+
+    tireModel_.computeTireForces(Fxf, Fyf, wheelCenterVelF(0), wheelCenterVelF(1), 0.0, 0.0, slipAngleFront, -Fzf);
+    tireModel_.computeTireForces(Fxr, Fyr, wheelCenterVelR(0),  wheelCenterVelR(1),  0.0, 0.0, slipAngleRear,  -Fzr);
+
+    // Force longitudinal to zero for now.
+    Fxf = 0.0;
+    Fxr = 0.0;
+
+    // Kinematic equations (transforming body-fixed velocities into inertial frame):
+    double xDot   = vxBody * cos(psi) - vyBody * sin(psi);
+    double yDot   = vxBody * sin(psi) + vyBody * cos(psi);
+    double psiDot = r;  // The derivative of heading is the yaw rate.
+
+    // Dynamics for the lateral (sideslip) motion.
+    // The lateral force balance (in the body-fixed frame) gives:
+    //   m * u * (betaDot + r) = F_yf + F_yr
+    // Solving for betaDot gives:
+    double betaDot = (Fyf + Fyr) / (mass_ * vxBody) - r;
+
+    // Yaw moment balance gives:
+    //   I_z * r_dot = a * F_yf - b * F_yr
+    double rDot = (distFrontAxleToCg_ * Fyf - distRearAxleToCg_ * Fyr) / izz_;
+
+    // Longitudinal dynamics (for now, placeholder: no acceleration).
+    double vxBodyDot = 0.0;
+
+    // Fill in the derivative vector.
+    derivatives(0) = xDot;
+    derivatives(1) = yDot;
+    derivatives(2) = psiDot;
+    derivatives(3) = betaDot;
+    derivatives(4) = rDot;
+    derivatives(5) = vxBodyDot;
+}
+
+template <class TireModel>
+double BicycleModel<TireModel>::getSteeringInput(double t) {
+    return GlobalConstants::MAX_STEERING_ANGLE_RAD * sin( 0.5 * t );
+}

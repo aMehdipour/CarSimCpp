@@ -39,8 +39,9 @@
 *.cache
 *.clangd
 RefactorCode/*
-build/*
+*build/*
+*/build/*/*
 *.internal
 Output/*
 *.make
-
+*.cmake

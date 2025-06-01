@@ -3,8 +3,8 @@
 
 void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> coefficients) {
 
-    std::cout << "Initializing MFCoefficients from TIR file..." << std::endl;
-    std::cout << "-----------------------------------------------------------------" << std::endl;
+    // std::cout << "Initializing MFCoefficients from TIR file..." << std::endl;
+    // std::cout << "-----------------------------------------------------------------" << std::endl;
 
     static const std::unordered_map<std::string, double MFCoefficients::*> field_map = {
         {"UNLOADED_RADIUS", & MFCoefficients::UNLOADED_RADIUS_},
@@ -158,14 +158,14 @@ void MFCoefficients::initializeFromTir(std::unordered_map<std::string, double> c
         auto it = field_map.find(pair.first);
         if (it != field_map.end()) {
             this->*(it->second) = pair.second;
-            std::cout << "-- Value from CSV: " << pair.first << " = " << pair.second << std::endl;
-            std::cout << "-- Member Variable: " << it->first << " = " << this->*(it->second) << std::endl;
+            // std::cout << "-- Value from CSV: " << pair.first << " = " << pair.second << std::endl;
+            // std::cout << "-- Member Variable: " << it->first << " = " << this->*(it->second) << std::endl;
         } else {
-            std::cout << "Field not found: " << pair.first << ". Setting to zero..."<< std::endl;
+            // std::cout << "Field not found: " << pair.first << ". Setting to zero..."<< std::endl;
             /*this->*(it->second) = 0.;*/
 
         }
 
-        std::cout << "-----------------------------------------------------------------" << std::endl;
+        // std::cout << "-----------------------------------------------------------------" << std::endl;
     }
 }

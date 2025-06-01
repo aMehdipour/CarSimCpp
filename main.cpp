@@ -15,8 +15,8 @@
 
 using json = nlohmann::json;
 int main() {
-    std::cout << "CarSimCpp - Vehicle Dynamics Simulation" << std::endl;
-    std::cout << "======================================" << std::endl;
+    // std::cout << "CarSimCpp - Vehicle Dynamics Simulation" << std::endl;
+    // std::cout << "======================================" << std::endl;
 
     auto t = std::time(nullptr);
     auto tm = *std::localtime(&t);
@@ -24,6 +24,7 @@ int main() {
     oss << std::put_time(&tm, "%m_%d_%Y_%H_%M_%S");
     auto str = oss.str();
     std::string outDir = "Output/" + str + "/";
+    // std::string outDir = "Output/";
 
     // Create output directory if it doesn't exist
     std::filesystem::create_directories(outDir);
@@ -54,7 +55,7 @@ int main() {
     bicycleModel.configure(config);
 
     // Initial conditions
-    MathTools::StateVector initialState(0., 0., 0., 0., 0., 30.); // x, y, psi, beta, r, vxBody
+    MathTools::StateVector initialState(0., 0., 0., 0., 0., 10.); // x, y, psi, beta, r, vxBody
     MathTools::DerivativeVector initialDerivatives(0., 0., 0., 0., 0., 0.); // dx, dy, dpsi, dbeta, dr
 
     bicycleModel(t0, initialState, initialDerivatives);
@@ -66,6 +67,6 @@ int main() {
     solver.integrate(output, bicycleModel);
     output.writeToFile(outDir + "sim_out.csv");
 
-    std::cout << "Simulation complete. Data saved to CSV files in the Output directory..." << std::endl;
-    std::cout << "Outputs written to: " << outDir << std::endl;
+    // std::cout << "Simulation complete. Data saved to CSV files in the Output directory..." << std::endl;
+    // std::cout << "Outputs written to: " << outDir << std::endl;
 }

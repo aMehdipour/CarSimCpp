@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Read the CSV file
-df = pd.read_csv('tire_model_test_results.csv')
+df = pd.read_csv('/home/amehdipour/Repos/CarSimCpp/tire_model_test_results.csv')
 
 # Create figure with subplots
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))

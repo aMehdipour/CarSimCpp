@@ -1,14 +1,15 @@
 {
     "tire" : {
-        "model" : "Linear",
-        "C_alphaF" : 80000.0,
-        "C_alphaR" : 80000.0,
-        "tirPath" : "/home/amehdipour/Repos/CarSimCpp/Data/ParsedTirCsv/H_R20_18X6_6_Coeffs.csv"
+        "model" : "Pacejka",
+        "tirPath" : "/home/amehdipour/Repos/CarSimCpp/Data/ParsedTirCsv/PacejkaBook_Defaults_Coeffs.csv"
     },
     "car" : {
         "mass" : 690.0,
         "Izz" : 69.0,
         "wheelbase" : 60.5,
         "frontWeightBias" : 0.5
+    },
+    "input" : {
+        "type": "Ramp"
     }
 }

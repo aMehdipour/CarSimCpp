@@ -60,7 +60,7 @@ public:
     maxPoints_(maxPoints) {
         savedCount_ = 0;
         flagUseDenseOutput_ = (numSaveIntervals > 0);
-        
+
         if (maxPoints_ > 0) {
             timePoints_.resize(maxPoints_);
         }
@@ -178,18 +178,13 @@ public:
         file.close();
     }
 
-    // Accessors with fixed return types
-    bool useDenseOutput() const { return flagUseDenseOutput_; }
-    int getMaxPoints() const { return maxPoints_; }
-    double getLastSavedTime() const { return savedCount_ > 0 ? timePoints_[savedCount_-1] : 0.; }
-    
-    // Compatibility methods for existing code
-    bool getUseDenseOutput() const { return flagUseDenseOutput_; }
-    
-    // Getter for stored data
+    // Getters
     const std::vector<double>& getTimePoints() const { return timePoints_; }
     const std::vector<std::vector<double>>& getStatePoints() const { return statePoints_; }
     int getSavedCount() const { return savedCount_; }
+    int getMaxPoints() const { return maxPoints_; }
+    bool getUseDenseOutput() const { return flagUseDenseOutput_; }
+    double getLastSavedTime() const { return savedCount_ > 0 ? timePoints_[savedCount_-1] : 0.; }
 
 private:
     int maxPoints_;

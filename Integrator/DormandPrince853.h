@@ -49,31 +49,31 @@ struct DormandPrince853 : IntegratorBase {
 //------------------------------------------------------------------------------
 template <class DerivativeFunction>
 DormandPrince853<DerivativeFunction>::DormandPrince853(
-    MathTools::StateVector& initialState, 
-    MathTools::DerivativeVector& initialDerivatives, 
+    MathTools::StateVector& initialState,
+    MathTools::DerivativeVector& initialDerivatives,
     double& initialTime,
-    const double absoluteTol, 
-    const double relativeTol, 
+    const double absoluteTol,
+    const double relativeTol,
     bool enableDenseOutput ) :
 
     IntegratorBase(initialState, initialDerivatives, initialTime, absoluteTol, relativeTol, enableDenseOutput),
     errorEstimate2_(numStates_),
-    k2_(numStates_), 
-    k3_(numStates_), 
-    k4_(numStates_), 
+    k2_(numStates_),
+    k3_(numStates_),
+    k4_(numStates_),
     k5_(numStates_),
-    k6_(numStates_), 
-    k7_(numStates_), 
-    k8_(numStates_), 
-    k9_(numStates_), 
+    k6_(numStates_),
+    k7_(numStates_),
+    k8_(numStates_),
+    k9_(numStates_),
     k10_(numStates_),
-    denseCoeff1_(numStates_), 
-    denseCoeff2_(numStates_), 
-    denseCoeff3_(numStates_), 
+    denseCoeff1_(numStates_),
+    denseCoeff2_(numStates_),
+    denseCoeff3_(numStates_),
     denseCoeff4_(numStates_),
-    denseCoeff5_(numStates_), 
-    denseCoeff6_(numStates_), 
-    denseCoeff7_(numStates_), 
+    denseCoeff5_(numStates_),
+    denseCoeff6_(numStates_),
+    denseCoeff7_(numStates_),
     denseCoeff8_(numStates_) { }
 
 //------------------------------------------------------------------------------
@@ -86,7 +86,7 @@ void DormandPrince853<DerivativeFunction>::step(const double stepSize, Derivativ
 
     for (;;) {
         // Compute one complete step
-        computeStages(trialStepSize, derivativeFunction); 
+        computeStages(trialStepSize, derivativeFunction);
 
         // Check if error is acceptable
         double error = computeError(trialStepSize);
@@ -99,7 +99,7 @@ void DormandPrince853<DerivativeFunction>::step(const double stepSize, Derivativ
     }
 
     // Compute derivatives at the new state
-    derivativeFunction(time_ + trialStepSize, stateVector_, newDerivatives);
+    derivativeFunction(time_ + trialStepSize, stateVectorOut_, newDerivatives);
 
     // Prepare dense output for interpolation if needed
     if (flagUseDenseOutput_)
@@ -107,6 +107,7 @@ void DormandPrince853<DerivativeFunction>::step(const double stepSize, Derivativ
 
     // Update for next step
     derivativeVector_ = newDerivatives;
+    stateVector_ = stateVectorOut_;
     timePrev_ = time_;
     time_ += trialStepSize;
     stepSizeController_.nextStepSize_ = trialStepSize;
@@ -189,7 +190,7 @@ void DormandPrince853<DerivativeFunction>::computeStages(const double stepSize, 
             b9 * k9_[i] + b10 * k10_[i] + b11 * k2_[i] + b12 * k3_[i];
 
         //NOTE: This is the final state vector
-        stateVector_[i] = stateVector_[i] + stepSize * finalCombination[i];
+        stateVectorOut_[i] = stateVector_[i] + stepSize * finalCombination[i];
     }
 
     // Compute two error estimators
@@ -204,8 +205,8 @@ void DormandPrince853<DerivativeFunction>::computeStages(const double stepSize, 
 // prepareDenseOutput: Compute dense output coefficients for interpolation.
 //------------------------------------------------------------------------------
 template <class DerivativeFunction>
-void DormandPrince853<DerivativeFunction>::prepareDenseOutput(const double stepSize, 
-                                                        MathTools::DerivativeVector& newDerivatives, 
+void DormandPrince853<DerivativeFunction>::prepareDenseOutput(const double stepSize,
+                                                        MathTools::DerivativeVector& newDerivatives,
                                                         DerivativeFunction& derivativeFunction) {
     int i;
     double stateDifference, bspline;
@@ -287,7 +288,7 @@ double DormandPrince853<DerivativeFunction>::getDenseOutput(const int index, con
     );
 
     return output;
-}   
+}
 
 //------------------------------------------------------------------------------
 // computeError: Compute and return the error estimate for the current step.
@@ -299,7 +300,7 @@ double DormandPrince853<DerivativeFunction>::computeError(const double stepSize)
 
     for (int i = 0; i < numStates_; i++) {
         // Compute scale factor using absolute and relative tolerances
-        scaleFactor = std::max(absoluteTolerance_, relativeTolerance_ * std::max(std::fabs(stateVector_[i]), std::fabs(stateVector_[i])));
+        scaleFactor = std::max(absoluteTolerance_, relativeTolerance_ * std::max(std::fabs(stateVector_[i]), std::fabs(stateVectorOut_[i])));
 
         // Compute error norms (scaled)
         errorNorm += (errorEstimate1_[i] / scaleFactor) * (errorEstimate1_[i] / scaleFactor);

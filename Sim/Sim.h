@@ -3,6 +3,7 @@
 #include "MathTools.h"
 #include <cstdlib>
 #include <stdexcept>
+#include <iostream>
 
 template <typename IntegratorType>
 class Sim {
@@ -111,11 +112,13 @@ void Sim<IntegratorType>::integrate(OutputHandler& output, DerivativeFunction& d
         }
 
         if (std::abs(integrator_.stepSizeController_.nextStepSize_) <= minStepSize_) {
-            throw std::runtime_error("[Sim.h] ERROR Step size too small!!! (That's what she said)");
+            std::cerr << "[Sim.h] ERROR Step size too small!!! (That's what she said)" << std::endl;
+            return;
         }
 
         stepSize_ = integrator_.stepSizeController_.nextStepSize_;
     }
 
-    throw std::runtime_error("[Sim.h] ERROR Reached max integration steps!!!");
+    std::cerr << "[Sim.h] ERROR Reached max integration steps!!!" << std::endl;
+    return;
 }
